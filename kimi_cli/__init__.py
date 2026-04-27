@@ -21,6 +21,11 @@ DEFAULT_MODEL = "moonshot-v1-32k"
 # consistent, less random outputs in my scripting use cases.
 DEFAULT_TEMPERATURE = 0.7
 
+# Maximum number of retries on transient API errors (e.g. rate limits,
+# 5xx responses). Upstream doesn't expose this; adding it here so I can
+# tune retry behaviour without digging into the client code each time.
+DEFAULT_MAX_RETRIES = 3
+
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
 
@@ -29,6 +34,7 @@ __all__ = [
     "Session",
     "DEFAULT_MODEL",
     "DEFAULT_TEMPERATURE",
+    "DEFAULT_MAX_RETRIES",
     "__version__",
     "__author__",
     "__email__",
