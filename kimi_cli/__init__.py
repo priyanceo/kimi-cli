@@ -19,4 +19,6 @@ __all__ = [
     "Session",
     "__version__",
     "__author__",
+    "__email__",
+    "__license__",
 ]
