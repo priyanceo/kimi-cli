@@ -16,6 +16,11 @@ __license__ = "MIT"
 # "moonshot-v1-8k"; switching to 32k for longer context in my workflows.
 DEFAULT_MODEL = "moonshot-v1-32k"
 
+# Default temperature for generation. Moonshot's API accepts 0.0-1.0;
+# keeping it slightly lower than the upstream default (1.0) for more
+# consistent, less random outputs in my scripting use cases.
+DEFAULT_TEMPERATURE = 0.7
+
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
 
@@ -23,6 +28,7 @@ __all__ = [
     "KimiClient",
     "Session",
     "DEFAULT_MODEL",
+    "DEFAULT_TEMPERATURE",
     "__version__",
     "__author__",
     "__email__",
