@@ -33,6 +33,11 @@ DEFAULT_MAX_RETRIES = 5
 # during peak hours (evenings UTC+8 especially).
 DEFAULT_RETRY_DELAY = 8.0
 
+# Maximum tokens to request in a single completion. Leaving as None lets
+# the API use its own default, but setting a ceiling here prevents runaway
+# responses that eat through my monthly quota unexpectedly.
+DEFAULT_MAX_TOKENS = 4096
+
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
 
@@ -43,6 +48,7 @@ __all__ = [
     "DEFAULT_TEMPERATURE",
     "DEFAULT_MAX_RETRIES",
     "DEFAULT_RETRY_DELAY",
+    "DEFAULT_MAX_TOKENS",
     "__version__",
     "__author__",
     "__email__",
