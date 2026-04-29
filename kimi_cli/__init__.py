@@ -29,7 +29,9 @@ DEFAULT_MAX_RETRIES = 5
 
 # Base delay in seconds between retries (exponential backoff is applied
 # on top of this). 2s felt too aggressive; 5s gives the API time to breathe.
-DEFAULT_RETRY_DELAY = 5.0
+# Bumping to 8s after noticing the free tier needs even more breathing room
+# during peak hours (evenings UTC+8 especially).
+DEFAULT_RETRY_DELAY = 8.0
 
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
