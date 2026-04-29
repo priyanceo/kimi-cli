@@ -24,7 +24,12 @@ DEFAULT_TEMPERATURE = 0.7
 # Maximum number of retries on transient API errors (e.g. rate limits,
 # 5xx responses). Upstream doesn't expose this; adding it here so I can
 # tune retry behaviour without digging into the client code each time.
-DEFAULT_MAX_RETRIES = 3
+# Bumped from 3 to 5 — I hit rate limits fairly often on the free tier.
+DEFAULT_MAX_RETRIES = 5
+
+# Base delay in seconds between retries (exponential backoff is applied
+# on top of this). 2s felt too aggressive; 5s gives the API time to breathe.
+DEFAULT_RETRY_DELAY = 5.0
 
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
@@ -35,6 +40,7 @@ __all__ = [
     "DEFAULT_MODEL",
     "DEFAULT_TEMPERATURE",
     "DEFAULT_MAX_RETRIES",
+    "DEFAULT_RETRY_DELAY",
     "__version__",
     "__author__",
     "__email__",
