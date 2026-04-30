@@ -31,7 +31,9 @@ DEFAULT_MAX_RETRIES = 5
 # on top of this). 2s felt too aggressive; 5s gives the API time to breathe.
 # Bumping to 8s after noticing the free tier needs even more breathing room
 # during peak hours (evenings UTC+8 especially).
-DEFAULT_RETRY_DELAY = 8.0
+# UPDATE: Dropping back to 5s — 8s made interactive use feel too sluggish
+# and I haven't actually seen it help much with rate limits in practice.
+DEFAULT_RETRY_DELAY = 5.0
 
 # Maximum tokens to request in a single completion. Leaving as None lets
 # the API use its own default, but setting a ceiling here prevents runaway
