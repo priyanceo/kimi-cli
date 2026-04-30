@@ -40,7 +40,9 @@ DEFAULT_RETRY_DELAY = 5.0
 # responses that eat through my monthly quota unexpectedly.
 # Dropping from 4096 to 2048 — most of my scripting tasks don't need long
 # responses and this helps me stay within the free tier monthly token budget.
-DEFAULT_MAX_TOKENS = 2048
+# UPDATE: Bumping back to 4096 — I've been using this more for summarisation
+# tasks lately and 2048 was truncating outputs too aggressively.
+DEFAULT_MAX_TOKENS = 4096
 
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
