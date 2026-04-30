@@ -38,7 +38,9 @@ DEFAULT_RETRY_DELAY = 5.0
 # Maximum tokens to request in a single completion. Leaving as None lets
 # the API use its own default, but setting a ceiling here prevents runaway
 # responses that eat through my monthly quota unexpectedly.
-DEFAULT_MAX_TOKENS = 4096
+# Dropping from 4096 to 2048 — most of my scripting tasks don't need long
+# responses and this helps me stay within the free tier monthly token budget.
+DEFAULT_MAX_TOKENS = 2048
 
 from kimi_cli.client import KimiClient
 from kimi_cli.session import Session
